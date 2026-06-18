@@ -39,16 +39,18 @@ amazon-clone/
     │   └── products.js          ← All static data (PRODUCTS, CATEGORIES, NAV_LINKS …)
     │
     └── components/
-        ├── Header.jsx            ← Sticky nav (logo, search, account, secondary links)
+        ├── Header.jsx            ← Sticky nav (logo, search, account, cart icon, secondary links)
         ├── Header.css
         ├── HeroBanner.jsx        ← Hero section with CTA buttons
         ├── HeroBanner.css
         ├── CategoryFilter.jsx    ← Horizontal category pill bar
         ├── CategoryFilter.css
-        ├── ProductCard.jsx       ← Card + StarRating, PrimeBadge, PriceDisplay, Wishlist
+        ├── ProductCard.jsx       ← Card + StarRating, PrimeBadge, PriceDisplay, Wishlist, Add to Cart
         ├── ProductCard.css
         ├── ProductGrid.jsx       ← Responsive product grid + heading + sort
         ├── ProductGrid.css
+        ├── CartDrawer.jsx        ← Slide-in cart with items, qty, remove, checkout
+        ├── CartDrawer.css
         ├── Footer.jsx            ← Four-column footer + back-to-top
         └── Footer.css
 ```
@@ -59,13 +61,14 @@ amazon-clone/
 
 | File | Responsibility |
 |---|---|
-| `App.jsx` | Shared state: `search`, `selectedCategory` |
+| `App.jsx` | Shared state: `search`, `selectedCategory`, `cart`, `cartOpen` |
 | `data/products.js` | All data constants — zero UI code |
-| `Header.jsx` | NavLogo · NavDeliver · NavSearch · NavAccountLinks · NavLink |
+| `Header.jsx` | NavLogo · NavDeliver · NavSearch · NavAccountLinks · NavCartButton · NavLink |
 | `HeroBanner.jsx` | Marketing hero section |
 | `CategoryFilter.jsx` | Category pill buttons |
-| `ProductCard.jsx` | StarRating · PrimeBadge · PriceDisplay · ProductBadge · WishlistButton |
+| `ProductCard.jsx` | StarRating · PrimeBadge · PriceDisplay · ProductBadge · WishlistButton · AddToCartButton |
 | `ProductGrid.jsx` | Maps `filteredProducts` → `<ProductCard>` |
+| `CartDrawer.jsx` | CartItem · CartPanel · overlay |
 | `Footer.jsx` | FooterColumn · back-to-top |
 
 ---
@@ -74,10 +77,9 @@ amazon-clone/
 
 - 🔍 Live search filtering
 - 🗂️ Category filtering (pills + search bar dropdown in sync)
+- 🛒 Add to cart with quantity tracking, animated "✓ Added!" confirmation, and a slide-in cart drawer
 - ♥ Wishlist toggle per card
 - 🏷️ Badges: Best Seller, Amazon's Choice, Deal of the Day
 - 📦 Prime badge with free delivery label
 - 🔗 Active nav link highlighting (secondary bar)
 - 🎨 Fully CSS-based styling (no CSS-in-JS)
-
-> **Note:** The shopping cart system (add-to-cart, cart drawer, cart icon/badge) has been removed from this version. The rest of the project structure and functionality remains the same.

@@ -1,7 +1,7 @@
 import ProductCard from './ProductCard'
 import './ProductGrid.css'
 
-export default function ProductGrid({ products, search, selectedCategory }) {
+export default function ProductGrid({ products, search, selectedCategory, onAddToCart }) {
   const heading = search
     ? `Results for "${search}"`
     : selectedCategory === 'All'
@@ -34,7 +34,7 @@ export default function ProductGrid({ products, search, selectedCategory }) {
       ) : (
         <div className="product-grid">
           {products.map(p => (
-            <ProductCard key={p.id} product={p} />
+            <ProductCard key={p.id} product={p} onAddToCart={onAddToCart} />
           ))}
         </div>
       )}

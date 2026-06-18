@@ -98,3 +98,8 @@
 .add-to-cart-btn:hover {
   background: linear-gradient(to bottom, #F7CA00, #e6b800);
 }
+.add-to-cart-btn.added {
+  background: #4CAF50;
+  color: #fff;
+  border-color: #4CAF50;
+}

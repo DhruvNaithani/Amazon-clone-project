@@ -63,17 +63,28 @@ function WishlistButton({ wishlisted, onToggle }) {
   )
 }
 
-// ── AddToCartButton (static, for showcase only — no functionality) ──
-function AddToCartButton() {
+// ── AddToCartButton (functional — calls onAdd, shows brief confirmation) ──
+function AddToCartButton({ onAdd }) {
+  const [added, setAdded] = useState(false)
+
+  const handleClick = () => {
+    onAdd()
+    setAdded(true)
+    setTimeout(() => setAdded(false), 1500)
+  }
+
   return (
-    <button className="add-to-cart-btn">
-      Add to Cart
+    <button
+      className={`add-to-cart-btn ${added ? 'added' : ''}`}
+      onClick={handleClick}
+    >
+      {added ? '✓ Added!' : 'Add to Cart'}
     </button>
   )
 }
 
 // ── ProductCard (main export) ─────────────────
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onAddToCart }) {
   const [wishlisted, setWishlisted] = useState(false)
 
   return (
@@ -102,7 +113,7 @@ export default function ProductCard({ product }) {
 
       <PriceDisplay price={product.price} />
       {product.prime && <PrimeBadge />}
-      <AddToCartButton />
+      <AddToCartButton onAdd={() => onAddToCart(product)} />
     </div>
   )
 }

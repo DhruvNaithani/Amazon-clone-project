@@ -64,6 +64,19 @@ function NavAccountLinks() {
   )
 }
 
+// ── Cart Icon ────────────────────────────────
+function NavCartButton({ cartCount, onClick }) {
+  return (
+    <div className="nav-cart" onClick={onClick}>
+      <div className="cart-icon-wrap">
+        <span className="cart-icon">🛒</span>
+        {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+      </div>
+      <span className="cart-label">Cart</span>
+    </div>
+  )
+}
+
 // ── Single secondary-nav link ─────────────────
 function NavLink({ link, isActive, onClick }) {
   return (
@@ -80,7 +93,7 @@ function NavLink({ link, isActive, onClick }) {
 }
 
 // ── Full Header ───────────────────────────────
-export default function Header({ search, onSearch, selectedCategory, onCategoryChange }) {
+export default function Header({ search, onSearch, selectedCategory, onCategoryChange, cartCount, onCartOpen }) {
   const [activeNav, setActiveNav] = useState(null)
 
   return (
@@ -96,6 +109,7 @@ export default function Header({ search, onSearch, selectedCategory, onCategoryC
           onCategoryChange={onCategoryChange}
         />
         <NavAccountLinks />
+        <NavCartButton cartCount={cartCount} onClick={onCartOpen} />
       </div>
 
       {/* Secondary bar */}
