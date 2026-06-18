@@ -1,0 +1,100 @@
+/* ── Card Shell ── */
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #DDD;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+.product-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Badge ── */
+.product-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+/* ── Wishlist ── */
+.wishlist-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.15s;
+}
+.wishlist-btn:hover { transform: scale(1.2); }
+
+/* ── Image ── */
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ── Title ── */
+.product-title {
+  font-size: 14px;
+  color: #0F1111;
+  line-height: 1.4;
+  min-height: 40px;
+}
+
+/* ── Rating ── */
+.product-rating { display: flex; align-items: center; gap: 6px; }
+.star-rating    { display: flex; align-items: center; gap: 2px; }
+.star           { color: #DDD; font-size: 14px; }
+.star.filled    { color: #FFA41C; }
+.review-count   { font-size: 13px; color: #007185; }
+
+/* ── Price ── */
+.price-display  { display: flex; align-items: baseline; gap: 2px; }
+.price-symbol   { font-size: 13px; align-self: flex-start; margin-top: 6px; }
+.price-dollars  { font-size: 24px; font-weight: 700; color: #0F1111; }
+.price-cents    { font-size: 13px; color: #0F1111; }
+
+/* ── Prime ── */
+.prime-badge    { display: flex; align-items: center; gap: 4px; margin-top: 4px; }
+.prime-label {
+  background: #00A8E0;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-style: italic;
+}
+.prime-delivery { font-size: 12px; color: #565959; }
+
+/* ── Add to Cart (static, showcase only) ── */
+.add-to-cart-btn {
+  margin-top: 6px;
+  background: linear-gradient(to bottom, #FFD814, #F7CA00);
+  border: 1px solid #FCD200;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0F1111;
+  transition: background 0.2s;
+}
+.add-to-cart-btn:hover {
+  background: linear-gradient(to bottom, #F7CA00, #e6b800);
+}
